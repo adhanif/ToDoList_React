@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <div class="container">
+      <div className="container">
       <Sidebar/>
       </div>
     </>

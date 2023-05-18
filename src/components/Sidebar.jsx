@@ -1,42 +1,97 @@
 import './Sidebar.css'
+import React, { useState, useEffect } from "react";
 
 function Sidebar() {
-  return (
-    <div class="sidebarContainer">
-        <h2>Dashboard</h2>
-        <div class="categoryList">
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
-                
-                </div>
-                <span>Personal</span>
-            </div>
-            {/* <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#70c4be"}}>
-                
-                </div>
-                <span>Work</span>
-            </div>
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#ab6ddf"}}>
-                
-                </div>
-                <span>Home</span>
-            </div>
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#86d377"}}>
-                
-                </div>
-                <span>Gifts</span>
-            </div> */}
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "transperant"}}>
-                <i id="addCategoryIcon" class="fas fa-plus"></i>
-                </div>
-                <span style={{marginLeft: "25px"}} >Add</span>
-            </div>
 
-        </div>
+    const[categories, setCategories]=useState("");
+    const[categoryList,setCategoryList ]=useState([]);
+
+    // useEffect(()=>{
+    //     setCategoryList(categoryList)
+
+    // },[categoryList])
+
+    const submit=(e)=>{
+        e.preventDefault();
+    };
+
+    const handleInputChange=(e)=>{  
+        setCategories(e.target.value)
+        // console.log(e.target.value)
+        }
+
+    const addCategory=()=>{
+        setCategoryList([...categoryList, categories])
+        setCategories("");
+        
+    }
+    // indexDelete
+    const deleteCategory=(e)=>{
+        const indexToDelete=e.target.dataset.index;
+        // console.log(parseInt(indexToDelete))
+        setCategoryList(categoryList.filter((_, index) => {
+           if(index !== parseInt(indexToDelete)){
+            return true;// Include the element in the filtered array
+           } else{
+            return false;
+           }
+        }));
+
+    }
+
+    // for alternative colors categoryIconColor
+    const colors=["#fd76a1", "#70c4be", "#ab6ddf","#86d377" ]
+    let count=0;
+    let categoryIconColor=[];
+    for(let i=0; i<categoryList.length; i++){
+        categoryIconColor.push(colors[count]);
+        count++;
+        if(count===colors.length){
+            count=0;
+        }
+    }
+
+ return (
+        <div className="sidebarContainer">
+            <h2>Dashboard</h2>
+            <div >
+                <form action="" onSubmit={submit} >
+                    <input type="text" placeholder='Enter the cataegory'
+                    onChange={handleInputChange}
+                    value={categories}
+                    id="task-input"
+                    />
+                    <button onClick={addCategory}><i id="addCategoryIcon" className="fas fa-plus"></i>Add </button>
+                </form>
+            </div>
+           
+            
+            <div className="categoryList">
+
+                {
+                    categoryList.map(
+                        (category, index)=>(
+                            <div className="category" key={index}>
+                                <div className="icon-cat">
+                                    {/* <div className="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
+                                    </div> */}
+                                    <div className="categoryIcon" style={{backgroundColor: categoryIconColor[index]}}>
+                                    </div>
+                                    <span>{category} </span>
+                            	</div>
+                                <i id="todo-delete" class="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e)}></i>
+                                {/* <button value={index}  onClick={(e) => deleteCategory(e)}>Delete</button> */}
+                                
+                            </div>
+                        )
+                    )
+                }
+
+            </div>
+           
+           
+
+            
     </div>
   )
 }

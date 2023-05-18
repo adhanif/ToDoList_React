@@ -1,9 +1,10 @@
 .sidebarContainer {
     width: 350px;
-    height: calc(100vh - 70px);
-    background-color: black;
-    /* background-color: #20212d; */
+   /* height: calc(100vh - 70px);*/
+    /* background-color: black; */
+    background-color: #20212d;
     padding-left: 35px;
+    padding-bottom: 20px;
   }
   
   .sidebarContainer h2 {
@@ -34,7 +35,7 @@
   .category:hover {
     background-color: white;
     /* background-color: #18181f; */
-    cursor: pointer;
+    /* cursor: pointer; */
   }
   
   .category:hover span {
@@ -73,4 +74,32 @@
   .categoryIcon:hover {
    color: black;
   }
+
+.icon-cat{
+  display:flex;
+  align-items: center;
+}
+.icon-cat span{
+  width: 60px;
+}
+
+#task-input {
+  border: none;
+  /* outline: none; */
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin-bottom: 3rem;
+  font-size: 16px;
   
+}
+#todo-delete {
+  margin-left: 10rem;
+  border-radius: 5px;
+  color: gray;
+  cursor: pointer;
+}
+#todo-delete:hover {
+  color: black;
+}
+
+
