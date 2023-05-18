@@ -3,14 +3,19 @@ import React, { useState, useEffect } from "react";
 
 function Sidebar() {
 
+    const storageKey = "categoryListKey";
     const[categories, setCategories]=useState("");
-    const[categoryList,setCategoryList ]=useState([]);
+    const [categoryList, setCategoryList] = useState(
+        JSON.parse(localStorage.getItem(storageKey)) || []
+      );
 
-    // useEffect(()=>{
-    //     setCategoryList(categoryList)
+ 
+    
+    useEffect(() => {
+        localStorage.setItem(storageKey, JSON.stringify(categoryList));
+      }, [categoryList]);
 
-    // },[categoryList])
-
+      
     const submit=(e)=>{
         e.preventDefault();
     };
@@ -28,18 +33,21 @@ function Sidebar() {
     // indexDelete
     const deleteCategory=(e)=>{
         const indexToDelete=e.target.dataset.index;
-        // console.log(parseInt(indexToDelete))
-        setCategoryList(categoryList.filter((_, index) => {
+        
+        const updatedList=categoryList.filter((_, index) => {
            if(index !== parseInt(indexToDelete)){
             return true;// Include the element in the filtered array
            } else{
             return false;
            }
-        }));
-
+            
+        });
+        setCategoryList(updatedList);
     }
 
-    // for alternative colors categoryIconColor
+    
+
+    // for alternative colors of categoryIconColor
     const colors=["#fd76a1", "#70c4be", "#ab6ddf","#86d377" ]
     let count=0;
     let categoryIconColor=[];
