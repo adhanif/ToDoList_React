@@ -22,12 +22,16 @@ function Sidebar() {
 
     const handleInputChange=(e)=>{  
         setCategories(e.target.value)
-        // console.log(e.target.value)
         }
 
     const addCategory=()=>{
-        setCategoryList([...categoryList, categories])
-        setCategories("");
+        if(categories!=""){
+            setCategoryList([...categoryList, categories])
+            setCategories("");
+        }else{
+            alert("Enter the category")
+        }
+        
         
     }
     // indexDelete
@@ -61,15 +65,15 @@ function Sidebar() {
 
  return (
         <div className="sidebarContainer">
-            <h2>Dashboard</h2>
+            <h2 id="heading2">Category </h2>
             <div >
                 <form action="" onSubmit={submit} >
-                    <input type="text" placeholder='Enter the cataegory'
+                    <input type="text" placeholder='Enter the category:'
                     onChange={handleInputChange}
                     value={categories}
                     id="task-input"
                     />
-                    <button onClick={addCategory}><i id="addCategoryIcon" className="fas fa-plus"></i>Add </button>
+                    <button onClick={addCategory} id="addButton"><i  className="fas fa-plus"></i>Add </button>
                 </form>
             </div>
            
@@ -85,9 +89,9 @@ function Sidebar() {
                                     </div> */}
                                     <div className="categoryIcon" style={{backgroundColor: categoryIconColor[index]}}>
                                     </div>
-                                    <span>{category} </span>
+                                    <span className="categoryText">{category} </span>
                             	</div>
-                                <i id="todo-delete" class="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e)}></i>
+                                <i id="todo-delete" className="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e)}></i>
                                 {/* <button value={index}  onClick={(e) => deleteCategory(e)}>Delete</button> */}
                                 
                             </div>

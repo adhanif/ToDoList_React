@@ -11,7 +11,10 @@ function App() {
       <Navbar/>
       <div className="container">
       <Sidebar/>
+
       </div>
+      
+      
     </>
   )
 }

@@ -31,7 +31,7 @@ function Navbar() {
         <i className="fas fa-bell"></i>
       </div>
       <div className="profilImage">
-        <image src="https://cdn-icons-png.flaticon.com/128/149/149071.png" />
+        <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" />
       </div>
     </div>
   </nav>
