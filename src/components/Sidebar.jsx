@@ -2,36 +2,36 @@ import './Sidebar.css'
 
 function Sidebar() {
   return (
-    <div class="sidebarContainer">
+    <div className="sidebarContainer">
         <h2>Dashboard</h2>
-        <div class="categoryList">
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
+        <div className="categoryList">
+            <div className="category">
+                <div className="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
                 
                 </div>
                 <span>Personal</span>
             </div>
-            {/* <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#70c4be"}}>
+            {/* <div className="category">
+                <div className="categoryIcon" style={{backgroundColor: "#70c4be"}}>
                 
                 </div>
                 <span>Work</span>
             </div>
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#ab6ddf"}}>
+            <div className="category">
+                <div className="categoryIcon" style={{backgroundColor: "#ab6ddf"}}>
                 
                 </div>
                 <span>Home</span>
             </div>
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "#86d377"}}>
+            <div className="category">
+                <div className="categoryIcon" style={{backgroundColor: "#86d377"}}>
                 
                 </div>
                 <span>Gifts</span>
             </div> */}
-            <div class="category">
-                <div class="categoryIcon" style={{backgroundColor: "transperant"}}>
-                <i id="addCategoryIcon" class="fas fa-plus"></i>
+            <div className="category">
+                <div className="categoryIcon" style={{backgroundColor: "transperant"}}>
+                <i id="addCategoryIcon" className="fas fa-plus"></i>
                 </div>
                 <span style={{marginLeft: "25px"}} >Add</span>
             </div>
