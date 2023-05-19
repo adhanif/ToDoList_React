@@ -7,9 +7,45 @@ function Sidebar() {
     const[categories, setCategories]=useState("");
     const [categoryList, setCategoryList] = useState(
         JSON.parse(localStorage.getItem(storageKey)) || []
-      );
+    );
 
- 
+       //code from Ermias MAin
+       const [todos, setTodos] = useState([]);
+
+        useEffect(() => {
+        const getAllLocalStorageItems = () => {
+        const localStorageItems = {};
+    
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+    
+        // Parse the value if it is JSON data
+        let parsedValue;
+        try {
+          parsedValue = JSON.parse(value);
+        } catch (error) {
+          parsedValue = value;
+        }
+    
+        localStorageItems[key] = parsedValue;
+      }
+    
+      return localStorageItems;
+    };
+    
+    const allLocalStorageItems = getAllLocalStorageItems();
+    setTodos(allLocalStorageItems)
+    // setTodos(allLocalStorageItems);
+    // const storedTodos = localStorage.getItem('Work');
+    // if (storedTodos) {
+    //   setTodos(JSON.parse(storedTodos)); 
+    // }
+    // console.log(allLocalStorageItems)
+  }, [categoryList]);
+  
+
+       //
     
     // useEffect(() => {
     //     localStorage.setItem(categories, JSON.stringify(categoryList));
@@ -24,10 +60,13 @@ function Sidebar() {
         setCategories(e.target.value)
         }
 
-    const addCategory=(e)=>{
+    const addCategory=(categoryIconColor, e)=>{
+        console.log(categoryIconColor)
+        // const iconColor=categoryIconColor
         if(categories!=""){
+
             setCategoryList([...categoryList, categories])
-            localStorage.setItem(categories, JSON.stringify([]));
+            localStorage.setItem(categories, JSON.stringify(["color: categoryIconColor"]));
             // localStorage.setItem(categories, JSON.stringify(categoryList));
             setCategories("");
         }else{
@@ -37,9 +76,10 @@ function Sidebar() {
         
     }
     // indexDelete
-    const deleteCategory=(e)=>{
-        const indexToDelete=e.target.dataset.index;
+    const deleteCategory=(e, category)=>{
         
+         localStorage.removeItem(category);
+        const indexToDelete=e.target.dataset.index;
         const updatedList=categoryList.filter((_, index) => {
            if(index !== parseInt(indexToDelete)){
             return true;// Include the element in the filtered array
@@ -75,7 +115,7 @@ function Sidebar() {
                     value={categories}
                     id="task-input"
                     />
-                    <button onClick={addCategory} id="addButton"><i  className="fas fa-plus"></i>Add </button>
+                    <button onClick={(e)=>addCategory(e, categoryIconColor[0])} id="addButton"><i  className="fas fa-plus"></i>Add </button>
                 </form>
             </div>
            
@@ -83,7 +123,7 @@ function Sidebar() {
             <div className="categoryList">
 
                 {
-                    categoryList.map(
+                Object?.keys(todos)?.map(
                         (category, index)=>(
                             <div className="category" key={index}>
                                 <div className="icon-cat">
@@ -93,7 +133,7 @@ function Sidebar() {
                                     </div>
                                     <span className="categoryText">{category} </span>
                             	</div>
-                                <i id="todo-delete" className="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e)}></i>
+                                <i id="todo-delete" className="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e,category, index)}></i>
                                 {/* <button value={index}  onClick={(e) => deleteCategory(e)}>Delete</button> */}
                                 
                             </div>
