@@ -11,9 +11,9 @@ function Sidebar() {
 
  
     
-    useEffect(() => {
-        localStorage.setItem(storageKey, JSON.stringify(categoryList));
-      }, [categoryList]);
+    // useEffect(() => {
+    //     localStorage.setItem(categories, JSON.stringify(categoryList));
+    //   }, [categoryList]);
 
       
     const submit=(e)=>{
@@ -24,9 +24,11 @@ function Sidebar() {
         setCategories(e.target.value)
         }
 
-    const addCategory=()=>{
+    const addCategory=(e)=>{
         if(categories!=""){
             setCategoryList([...categoryList, categories])
+            localStorage.setItem(categories, JSON.stringify([]));
+            // localStorage.setItem(categories, JSON.stringify(categoryList));
             setCategories("");
         }else{
             alert("Enter the category")
