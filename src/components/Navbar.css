@@ -75,3 +75,20 @@
    color: white;
   }
  
+  #buttons {
+    display: flex;
+    /* height: 20px;
+    width: 20px; */
+    /* padding: 10px 16px; */
+    border-radius: 4px;
+  }
+
+  .button1, .button2, .button3, .button4 {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  #BtnBlue, #BtnRed, #BtnGreen, #BtnDark {
+    height: 25px;
+    width: 25px;
+  }

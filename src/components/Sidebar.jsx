@@ -1,7 +1,8 @@
 import './Sidebar.css'
 import React, { useState, useEffect } from "react";
 
-function Sidebar() {
+function Sidebar({sidebarColor}) {
+    
 
     const storageKey = "categoryListKey";
     const[categories, setCategories]=useState("");
@@ -103,8 +104,9 @@ function Sidebar() {
         }
     }
 
-    return (
-        <div className="sidebarContainer">
+
+ return (
+        <div className="sidebarContainer" style={{backgroundColor: sidebarColor}}>
             <h2 id="heading2">Category </h2>
             <div>
                 <form action="" onSubmit={submit} >
