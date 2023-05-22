@@ -58,29 +58,29 @@ function TodoCategory({ categoryName }) {
   };
 
   return (
-    <div className="taskContainer">
-      <div className="taskCategoryHeader">
+    <div className="tasksContainer">
+      <div className="tasksCategoryHeader">
         <div className="categoryDash">
           <div className="categoryIcon" style={{ backgroundColor: '#fd76a1' }}></div>
           <span>{categoryName}</span>
         </div>
-        <input id="todo-input" type="text" placeholder="Add a new todo" onChange={handleInputChange} value={newTodo} />
+        <input id="todos-input" type="text" placeholder="Add a new todo" onChange={handleInputChange} value={newTodo} />
         <i onClick={handleAddTodo} id="add-button" className="fas fa-plus" type="button"></i>
       </div>
-      <ul id="todo-list">
+      <ul id="todos-list">
         {todoList?.map((todo, index) => (
           <li key={index}>
-            <div className="todo-item">
-              <div className="todo-item-left">
+            <div className="todos-item">
+              <div className="todos-item-left">
                 <input
-                  id="todo-check"
+                  id="todos-check"
                   type="checkbox"
                   checked={todo.completed}
                   onChange={() => handleCheckTodo(index)}
                 />
               </div>
               <input
-                id="task-input"
+                id="tasks-input"
                 style={{ color: todo.completed ? 'grey' : '', textDecoration: todo.completed ? `2px line-through black` : '', border: todo.edit ? '1px solid grey' : '' }}
                 type="text"
                 value={todo.text}
@@ -88,8 +88,8 @@ function TodoCategory({ categoryName }) {
                 onChange={(e) => e.target.value !=="" ? handleEditTodo(index, e.target.value) : null}
                 disabled={todo.edit ? false : true}
               />
-              <div className="todo-item-right">
-                <i onClick={() => handleEdit(index)} id="todo-edit" className={todo.edit ? "fas fa-check save" : "fas fa-pen" }></i>
+              <div className="todos-item-right">
+                <i onClick={() => handleEdit(index)} id="todos-edit" className={todo.edit ? "fas fa-check save" : "fas fa-pen" }></i>
                 <i id="todo-delete" className="fas fa-trash" onClick={() => handleDeleteTodo(index)}></i>
               </div>
             </div>
