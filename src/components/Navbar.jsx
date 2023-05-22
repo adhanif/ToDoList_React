@@ -31,7 +31,7 @@ function Navbar({handleMainColor, handleSidebarColor}) {
   const colorBtnDark = () => {
     setNavColor('black');
     handleMainColor('#0b0b0b');
-    handleSidebarColor('#1d1e29');
+    handleSidebarColor('#000');
     };
     
   const navbarColor = {
