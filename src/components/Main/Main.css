@@ -5,8 +5,7 @@
     width: calc(100vw - 300px);
   }
 
-  .todoContent {
-    max-width: 700px;
+  .todosContent {
     width: 100%;
   }
 
@@ -16,6 +15,7 @@
     font-weight: 800;
     margin-top: 50px;
     margin-bottom: 50px;
+    padding-right: 300px;
   }
 
   .currentDay {
@@ -43,7 +43,7 @@
     cursor: pointer;
   }
 
-  .taskContainer {
+  .tasksContainer {
     /* background-color: #20212d; */
     background-color: #141414;
     margin-bottom: 30px;
@@ -51,7 +51,7 @@
     overflow: hidden;
   }
 
-  .taskCategoryHeader {
+  .tasksCategoryHeader {
     display: flex;
     align-items: center;
     /* background-color: #272833; */
@@ -60,16 +60,15 @@
     padding: 15px 20px;
   }
   
-  .taskCategoryHeader span {
+  .tasksCategoryHeader span {
     flex: 1;
     color: #eee;
     font-size: 18px;
     font-weight: 500px; 
     margin-left: 15px;
-   
   }
   
-  .taskCategoryHeader input {
+  .tasksCategoryHeader input {
     flex: 1;
     height: 35px;
     outline: none;
@@ -96,14 +95,11 @@
     cursor: pointer;
   }
 
-
-
-
   li {
     list-style: none;
   }
   
-  .todo-item {
+  .todos-item {
     width: 100%;
     height: 60px;
     padding: 0px 65px;
@@ -112,12 +108,12 @@
     align-items: center;
   }
   
-  .todo-item-left {
+  .todos-item-left {
     display: flex;
     align-items: center;
   }
   
-  #todo-check {
+  #todos-check {
     width: 15px;
     height: 15px;
     border: none;
@@ -128,7 +124,7 @@
     cursor: pointer;
   }
   
-  #task-input {
+  #tasks-input {
     border: none;
     outline: none;
     padding: 5px 8px;
@@ -140,18 +136,18 @@
     text-align: center;
   }
   
-  #task-input.editMode {
+  #tasks-input.editMode {
     flex: 1;
     width: 100%;
     border: 1px solid grey;
   }
 
-  .todo-item-input-completed {
+  .todos-item-input-completed {
     color: grey;
     text-decoration: 2px line-through black;
   }
   
-  #todo-edit {
+  #todos-edit {
     width: 10px;
     height: 10px;
     padding: 0 15px;
@@ -163,11 +159,11 @@
     margin-right: 10px;
   }
   
-  #todo-edit:hover {
+  #todos-edit:hover {
     color: burlywood;
   }
   
-  #todo-edit.save {
+  #todos-edit.save {
     color: green;
   }
   

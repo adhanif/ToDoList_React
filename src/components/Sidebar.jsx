@@ -10,8 +10,9 @@ function Sidebar({sidebarColor}) {
         JSON.parse(localStorage.getItem(storageKey)) || []
     );
 
-       //code from Ermias MAin
+        //code from Ermias Main
        const [todos, setTodos] = useState([]);
+       console.log(Object?.values(todos));
 
         useEffect(() => {
         const getAllLocalStorageItems = () => {
@@ -37,45 +38,43 @@ function Sidebar({sidebarColor}) {
     
     const allLocalStorageItems = getAllLocalStorageItems();
     setTodos(allLocalStorageItems)
-    // setTodos(allLocalStorageItems);
-    // const storedTodos = localStorage.getItem('Work');
-    // if (storedTodos) {
-    //   setTodos(JSON.parse(storedTodos)); 
-    // }
-    // console.log(allLocalStorageItems)
+
   }, [categoryList]);
-  
-
-       //
-    
-    // useEffect(() => {
-    //     localStorage.setItem(categories, JSON.stringify(categoryList));
-    //   }, [categoryList]);
-
-      
+        
     const submit=(e)=>{
         e.preventDefault();
     };
 
+    // function generateRandomHexCode() {
+    //     const characters = "0123456789ABCDEF";
+    //     let hexCode = "#";
+    //     for (let i = 0; i < 6; i++) {
+    //       hexCode += characters[Math.floor(Math.random() * 16)];
+    //     }
+    //     return hexCode;
+    //   }
+
     const handleInputChange=(e)=>{  
-        setCategories(e.target.value)
+        setCategories(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1));
         }
 
-    const addCategory=(categoryIconColor, e)=>{
-        console.log(categoryIconColor)
+    const addCategory=()=>{
         // const iconColor=categoryIconColor
         if(categories!=""){
-
             setCategoryList([...categoryList, categories])
-            localStorage.setItem(categories, JSON.stringify(["color: categoryIconColor"]));
+            
+            // const categoryData = {
+            //     color: generateRandomHexCode(),
+            //   };
+
+            localStorage.setItem(categories, JSON.stringify([]));
             // localStorage.setItem(categories, JSON.stringify(categoryList));
             setCategories("");
         }else{
             alert("Enter the category")
-        }
-        
-        
+        }        
     }
+
     // indexDelete
     const deleteCategory=(e, category)=>{
         
@@ -92,7 +91,6 @@ function Sidebar({sidebarColor}) {
         setCategoryList(updatedList);
     }
 
-    
 
     // for alternative colors of categoryIconColor
     const colors=["#fd76a1", "#70c4be", "#ab6ddf","#86d377" ]
@@ -106,49 +104,43 @@ function Sidebar({sidebarColor}) {
         }
     }
 
+
  return (
         <div className="sidebarContainer" style={{backgroundColor: sidebarColor}}>
             <h2 id="heading2">Category </h2>
-            <div >
+            <div>
                 <form action="" onSubmit={submit} >
-                    <input type="text" placeholder='Enter the category:'
+                    <input type="text" placeholder='Add category'
                     onChange={handleInputChange}
                     value={categories}
-                    id="task-input"
+                    id="category-input"
+                    autocapitalize 
                     />
-                    <button onClick={(e)=>addCategory(e, categoryIconColor[0])} id="addButton"><i  className="fas fa-plus"></i>Add </button>
+                    <button onClick={addCategory} id="addButton">
+                        <i className="fas fa-plus"></i>
+                    </button>
                 </form>
             </div>
-           
-            
+
             <div className="categoryList">
-
-                {
-                Object?.keys(todos)?.map(
-                        (category, index)=>(
-                            <div className="category" key={index}>
-                                <div className="icon-cat">
-                                    {/* <div className="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
-                                    </div> */}
-                                    <div className="categoryIcon" style={{backgroundColor: categoryIconColor[index]}}>
-                                    </div>
-                                    <span className="categoryText">{category} </span>
-                            	</div>
-                                <i id="todo-delete" className="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e,category, index)}></i>
-                                {/* <button value={index}  onClick={(e) => deleteCategory(e)}>Delete</button> */}
-                                
+                {Object?.keys(todos)?.map(
+                    (category, index)=>(
+                    <div className="category" key={index}>
+                        <div className="icon-cat">
+                            {/* <div className="categoryIcon" style={{backgroundColor: "#fd76a1"}}>
+                            </div> */}
+                            <div className="categoryIcon" >
                             </div>
-                        )
+                            <span className="categoryText">{category} </span>
+                        </div>
+                        <i id="todos-delete" className="fas fa-trash" data-index={index}  onClick={(e) => deleteCategory(e, category, index)}></i>
+                        {/* <button value={index}  onClick={(e) => deleteCategory(e)}>Delete</button> */}
+                    </div>
                     )
-                }
-
+                )}
             </div>
-           
-           
-
-            
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Sidebar

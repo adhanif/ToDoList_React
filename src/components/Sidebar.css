@@ -1,124 +1,114 @@
 .sidebarContainer {
-    width: 350px;
-   height: calc(100vh - 70px);
-    /* background-color: black; */
-    background-color: #1d1e29;
-    padding-left: 35px;
-    padding-bottom: 20px;
-  }
+  width: 350px;
+  height: calc(100vh - 70px);
+  background-color: black;
+  /* background-color: #20212d; */
+  padding-left: 35px;
+}
   
-  .sidebarContainer h2 {
-    color: #eee;
-    font-size: 30px;
-    padding: 50px 0;
-  }
+.sidebarContainer h2 {
+  color: #eee;
+  font-size: 30px;
+  padding: 50px 0;
+}
   
-  .categoryList {
-    margin-top: -16px;
-  }
+.sidebarContainer h2 {
+  color: #eee;
+  font-size: 30px;
+  padding: 50px 0;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  margin: 4px -16px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  width: calc(100% - 32px);
+}
   
-  .category {
-    display: flex;
-    align-items: center;
-    margin: 4px -16px;
-    padding: 10px 16px;
-    border-radius: 4px;
-    width: calc(100% - 32px);
-  }
+.category span {
+  color: #eee;
+  margin-left: 15px;
+  font-size: 18px;
+}
   
-  .category span {
-    color: grey;
-    margin-left: 15px;
-    font-size: 18px;
-  }
-  
-  .categoryText:hover {
-    color: black;
-  }
-  .category:hover {
-    background-color: white;
-    color: black;
-    /* background-color: #18181f; */
-    /* cursor: pointer; */
-  }
-  
-  .category:hover span {
-    color: black;
-    transition: 0.3s;
-  }
-  
-  .categoryIcon {
-    height: 30px;
-    width: 2px;
-    border-radius: 4px;
-    display: grid;
-    place-items: center;
-  }
-  
-  .categoryDash {
-    display: flex;
-    align-items: center;
-    flex: 0.8;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  
-  .categoryIconDash {
-    padding-right: 33px;
-    padding-bottom: 33px;
-  }
-  
-  .categoryIconDash {
-    height: 30px;
-    width: 30px;
-    display: grid;
-    place-items: inherit;
-  }
-  
-  .categoryIcon:hover {
-   color: black;
-  }
+.categoryText:hover {
+  color: black;
+}
+
+.category:hover {
+  background-color: white;
+  /* background-color: #18181f; */
+  cursor: pointer;
+}
+
+.category:hover span {
+  color: black;
+  transition: 0.3s;
+}
+ 
+.categoryIcon {
+  height: 30px;
+  width: 2px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.categoryDash {
+  display: flex;
+  align-items: center;
+  flex: 0.8;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
 .icon-cat{
   display:flex;
   align-items: center;
 }
+
 .icon-cat span{
-  width: 60px;
+  width: 40px;
 }
 
-#task-input {
+#category-input {
+  color: #eee;
   border: none;
-  /* outline: none; */
+  outline: none; 
   padding: 5px 8px;
-  border-radius: 5px;
-  margin-bottom: 3rem;
-  font-size: 16px;
-  margin-right: 5px;
-  
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  background-color: transparent;
+  border-bottom: 1px solid #eee;
 }
-#todo-delete {
+
+#todos-delete {
   margin-left: 10rem;
   border-radius: 5px;
   color: gray;
   cursor: pointer;
 }
-#todo-delete:hover {
-  color: black;
+#todos-delete:hover {
+  color: red;
 }
 
 #addButton{
+  font-size: 16px;
   padding: 7px;
-  padding-right: 10px;
-  margin-left: 5px;
-  font-size: 14px;
+  margin-left: 15px;
   cursor: pointer;
-  background: white;
+  background: transparent;
+  color: #eee;
   border: none;
   border-radius: 5px;
 }
-.fas{
-  margin-right: 5px;
+#addButton:hover{
+  background: #eee;
+  color: black;
 }
+
 
 

@@ -35,7 +35,7 @@ function Main() {
     // if (storedTodos) {
     //   setTodos(JSON.parse(storedTodos));
     // }
-  }, []);
+  }, [todos]);
  
 
   return (
